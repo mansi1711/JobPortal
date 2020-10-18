@@ -1,0 +1,35 @@
+<!-- views/partials/head.ejs -->
+<meta charset="UTF-8">
+<div class='wrap'>
+  <div class="logo">
+    <h1>Job Portal</h1>
+  </div>
+  <% if(loggedin){ %>
+  <div>
+    <form action="/logout">
+      <input type="submit" name="Logout" value="logout" />
+    </form>
+  </div>
+  <% }; %>
+</div>
+</div>
+<!-- CSS (load bootstrap from a CDN) -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<style>
+  .logo {
+  overflow: hidden;
+  text-align: left;
+  position: relative;
+  height: 60px;
+  background-color: white;
+  color: #1F6C8B;
+  font-family: Arial;
+  margin-bottom: 30px;
+}
+  .wrap {
+  display: flex;
+  justify-content: space-between;
+}
+ 
+</style>

@@ -1,0 +1,41 @@
+{
+  "name": "jobportal",
+  "version": "1.0.0",
+  "description": "Job Portal",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mansi1711/JobPortal.git"
+  },
+  "author": "Mansi Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mansi1711/JobPortal/issues"
+  },
+  "homepage": "https://github.com/mansi1711/JobPortal#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "express-session": "^1.17.1",
+    "http": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "eslint": "^7.11.0"
+  }
+}

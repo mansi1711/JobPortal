@@ -1,0 +1,76 @@
+<table>
+      <% if(jobDetails){ %>
+        <tr>
+          <thead>
+              Project Name
+          </thead>
+          <thead>
+              Role
+          </thead>
+          <thead>
+              Technologies
+          </thead>
+          <% if(isSingleJob){ %>
+            <thead>
+              Client Name
+          </thead>
+          <thead>
+            Job Description
+        </thead>
+            <% }; %>
+        </tr>
+      <% jobDetails.forEach(function(job){ %>
+      <tr>
+        <td>
+          <h3>
+            <%= job.project_name %>
+          </h3>
+        </td>
+        <td>
+          <h3>
+            <%= job.role %>
+          </h3>
+        </td>
+        <td>
+          <h3>
+            <%= job.technologies %>
+          </h3>
+        </td>
+        <% if(isSingleJob){ %>
+        <td>
+          <h3>
+            <%= job.client_name %>
+          </h3>
+        </td>
+        <td>
+          <h3>
+            <%= job.job_description %>
+          </h3>
+        </td>
+        <% }; %>
+        <td>
+          <form action="/jobdetails/apply" method="post">
+            <input type="hidden" name="job_id" value="<%- job._id%>">
+            <input type="submit" name="apply" value="Apply" />
+          </form>
+        </td>
+        <% if(!isSingleJob){ %>
+        <td>
+          <form action="/jobdetails" method="post">
+            <input type="hidden" name="job_id" value="<%- job._id%>">
+            <input type="hidden" name="role" value="<%- role%>">
+            <input type="submit" name="details" value="View Details" />
+          </form>
+        </td>
+        <% } else{ %>
+          <td>
+          <form action="/jobdetails/employee" >
+            <input type="submit" name="Back" value="Back" />
+          </form>
+        </td>
+          <% }; %>
+      </tr>
+      <% }); %>
+      <% } %>
+  
+    </table>

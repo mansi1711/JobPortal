@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/header.ejs') %>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body class="container">
+
+  <header>
+    <%- include('../partials/navigation.ejs') %>
+  </header>
+
+
+  <form action="/addjob/new" method="POST">
+    Project Name: <input type="text" name="project_name" value=""><br><br>
+    Client Name: <input type="text" name="client_name" value=""><br><br>
+    Technologies: <input type="text" name="technologies" value=""><br><br>
+    Role: <input type="text" name="role" value=""><br><br>
+    Job Description: <input type="text" name="job_description" value=""><br><br>
+    Status: <input type="text" name="status" value=""><br><br>
+    <input type="hidden" name="created_by" value="<%- created_by%>">
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+
+<footer class="page-footer">
+    <%- include('../partials/footer.ejs') %>
+</footer>
+
+</html>

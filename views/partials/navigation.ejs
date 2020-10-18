@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand">
+        Home
+      </a>
+
+      <ul class="nav navbar-nav">
+        <% if(loggedin){ %>
+          <% if(role == "manager"){ %>
+            <li><a href="/addjob">Add Job</a></li>
+            <% }; %>
+        <% } else{ %>
+          <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+          <% }; %>
+      </ul>
+    </div>
+
+  </div>
+</nav>

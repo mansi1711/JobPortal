@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/header.ejs') %>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body class="container">
+
+  <header>
+    <%- include('../partials/navigation.ejs') %>
+  </header>
+
+
+  <form action="/register/new" method="POST">
+    User Name: <input type="text" name="username" value=""><br><br>
+    Password: <input type="text" name="password" value=""><br><br>
+    Role: <input type="text" name="role" value=""><br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+
+<footer class="page-footer">
+    <%- include('../partials/footer.ejs') %>
+</footer>
+
+</html>

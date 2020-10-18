@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html></html>
+
+<head>
+    <%- include('partials/header.ejs') %>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body class="container">
+
+  <header>
+    <%- include('partials/navigation.ejs') %>
+  </header>
+  <% if(loggedin){ %>
+    <% if(role == "manager"){ %>
+      <%- include('managerhome.ejs') %>
+  <% }else{ %>
+    <%- include('employeehome.ejs') %>
+    <% }; %>
+  <% } else{ %>
+    <p>Welcome to the JOB Portal</p>
+    <% }; %>
+  
+</body>
+
+<footer class="page-footer">
+    <%- include('partials/footer.ejs') %>
+  </footer>
+
+</html>
