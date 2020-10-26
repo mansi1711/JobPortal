@@ -1,91 +1,96 @@
 <table>
-    <% if(jobDetails){ %>
-      <tr>
-        <thead>
-            Project Name
-        </thead>
-        <thead>
-            Role
-        </thead>
-        <thead>
-            Technologies
-        </thead>
-        <% if(isSingleJob){ %>
-          <thead>
-            Client Name
-        </thead>
-        <thead>
-          Job Description
-      </thead>
-      <thead>
-        Status
-    </thead>
-          <% }; %>
-      </tr>
-    <% jobDetails.forEach(function(job){ %>
-    <tr>
-      <td>
-        <h3>
-          <%= job.project_name %>
-        </h3>
-      </td>
-      <td>
-        <h3>
-          <%= job.role %>
-        </h3>
-      </td>
-      <td>
-        <h3>
-          <%= job.technologies %>
-        </h3>
-      </td>
-      <% if(isSingleJob){ %>
-        <td>
-          <h3>
-            <%= job.client_name %>
-          </h3>
-        </td>
-        <td>
-          <h3>
-            <%= job.job_description %>
-          </h3>
-        </td>
-        <td>
-          <h3>
-            <form id="tableForm" action="/addjob/update" method="post">
-              <select class="selectpicker" data-style="btn-info" name="selectpicker">
-                  <optgroup label="Status">
-                      <option value="<%- job.status %>"><%= job.status %></option>    
-                      <% if(job.status == "open"){ %>         
-                      <option value="closed">close</option>
-                      <% } else{ %>
-                        <option value="open">open</option>
-                        <% }; %>
-                  </optgroup>
-              </select>
-              <input type="hidden" name="job_id" value="<%- job._id%>">
-              <input type="submit" value="Update" />
-          </form>
-          </h3>
-        </td>
-        <% }; %>
-      <% if(!isSingleJob){ %>
-      <td>
-        <form action="/jobdetails" method="post">
-          <input type="hidden" name="job_id" value="<%- job._id%>">
-          <input type="hidden" name="role" value="<%- role%>">
-          <input type="submit" name="details" value="View Details" />
+  <% if(jobDetails){ %>
+  <tr>
+    <th>
+      Project Name
+    </th>
+    <th>
+      Role
+    </th>
+    <th>
+      Technologies
+    </th>
+    <% if(isSingleJob){ %>
+    <th>
+      Client Name
+    </th>
+    <th>
+      Job Description
+    </th>
+    <th>
+      Status
+    </th>
+    <% }; %>
+    <th>
+      Action
+    </th>
+  </tr>
+  <% jobDetails.forEach(function(job){ %>
+  <tr>
+    <td>
+      <h3>
+        <%= job.project_name %>
+      </h3>
+    </td>
+    <td>
+      <h3>
+        <%= job.role %>
+      </h3>
+    </td>
+    <td>
+      <h3>
+        <%= job.technologies %>
+      </h3>
+    </td>
+    <% if(isSingleJob){ %>
+    <td>
+      <h3>
+        <%= job.client_name %>
+      </h3>
+    </td>
+    <td>
+      <h3>
+        <%= job.job_description %>
+      </h3>
+    </td>
+    <td>
+      <h3>
+        <form id="tableForm" action="/addjob/update" method="post">
+          <div class="form-group">
+            <select class="selectpicker" class="form-control" name="selectpicker">
+              <optgroup label="Status">
+                <option value="<%- job.status %>"><%= job.status %></option>
+                <% if(job.status == "open"){ %>
+                <option value="closed">close</option>
+                <% } else{ %>
+                <option value="open">open</option>
+                <% }; %>
+              </optgroup>
+            </select>
+            <input type="hidden" name="job_id" value="<%- job._id%>">
+            <input type="submit" value="Update" />
+          </div>
         </form>
-      </td>
-      <% } else{ %>
-        <td>
-        <form action="/jobdetails/manager" >
-          <input type="submit" name="Back" value="Back" />
-        </form>
-      </td>
-        <% }; %>
-    </tr>
-    <% }); %>
-    <% } %>
+      </h3>
+    </td>
+    <% }; %>
+    <% if(!isSingleJob){ %>
+    <td>
+      <form action="/jobdetails" method="post">
+        <input type="hidden" name="job_id" value="<%- job._id%>">
+        <input type="hidden" name="role" value="<%- role%>">
+        <input type="submit" name="details" value="View Details" />
+      </form>
+    </td>
+    <% } else{ %>
+    <td>
+      <form action="/jobdetails/manager">
+        <input type="submit" name="Back" value="Back" />
+      </form>
+    </td>
+    <% }; %>
+  </tr>
+  <% }); %>
+  <% } %>
 
-  </table>
+</table>

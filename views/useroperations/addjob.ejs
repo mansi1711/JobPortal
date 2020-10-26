@@ -2,8 +2,73 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/header.ejs') %>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+
+    /* Set a style for all buttons */
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+
+    button:hover {
+      opacity: 1;
+    }
+
+    /* Float add job button */
+    .jobbtn {
+      float: left;
+      width: 100%;
+    }
+
+    /* Add padding to container elements */
+    .container {
+      padding: 16px;
+    }
+
+    /* Clear floats */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  </style>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <%- include('../partials/header.ejs') %>
 </head>
 
 <body class="container">
@@ -14,20 +79,37 @@
 
 
   <form action="/addjob/new" method="POST">
-    Project Name: <input type="text" name="project_name" value=""><br><br>
-    Client Name: <input type="text" name="client_name" value=""><br><br>
-    Technologies: <input type="text" name="technologies" value=""><br><br>
-    Role: <input type="text" name="role" value=""><br><br>
-    Job Description: <input type="text" name="job_description" value=""><br><br>
-    Status: <input type="text" name="status" value=""><br><br>
-    <input type="hidden" name="created_by" value="<%- created_by%>">
-    <input type="submit" value="Submit">
+    <div class="container">
+      <p>Please add the Job Details</p>
+      <hr>
+      <label for="project_name"><b>Project Name</b></label>
+      <input type="text" placeholder="Enter Project Name" name="project_name" value="<%- project_name%>"><br><br>
+      <label for="client_name"><b>Client Name</b></label>
+      <input type="text" placeholder="Enter Client Name" name="client_name" value="<%- client_name%>"><br><br>
+      <label for="technologies"><b>Technologies</b></label>
+      <input type="text" placeholder="Enter Technologies" name="technologies" value="<%- technologies%>"><br><br>
+      <label for="role"><b>Role</b></label>
+      <input type="text" placeholder="Enter Role" name="role" value="<%- job_role%>"><br><br>
+      <label for="job_description"><b>Job Description</b></label>
+      <input type="text" placeholder="Enter Job Description" name="job_description"
+        value="<%- job_description%>"><br><br>
+      <label for="status"><b>Status</b></label>
+      <input type="text" placeholder="Enter Status" name="status" value="<%- status%>"><br><br>
+      <input type="hidden" name="created_by" value="<%- created_by%>">
+      <div class="clearfix">
+        <button type="submit" class="jobbtn">Add Job</button>
+      </div>
+    </div>
   </form>
+
+  <div class="logoo">
+    <% if(message){ %>
+    <%= message %>
+    <% }; %>
+  </div>
 
 </body>
 
-<footer class="page-footer">
-    <%- include('../partials/footer.ejs') %>
-</footer>
+<%- include('../partials/footer.ejs') %>
 
 </html>

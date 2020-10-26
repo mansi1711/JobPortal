@@ -8,13 +8,13 @@
 
       <ul class="nav navbar-nav">
         <% if(loggedin){ %>
-          <% if(role == "manager"){ %>
-            <li><a href="/addjob">Add Job</a></li>
-            <% }; %>
+        <% if(role == "manager"){ %>
+        <li><a href="/addjob">Add Job</a></li>
+        <% }; %>
         <% } else{ %>
-          <li><a href="/register">Register</a></li>
+        <li><a href="/register">Register</a></li>
         <li><a href="/login">Login</a></li>
-          <% }; %>
+        <% }; %>
       </ul>
     </div>
 

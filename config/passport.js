@@ -4,7 +4,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
 
 passport.use(
-  new LocalStrategy((username, password, done) => {
+  new LocalStrategy({ passReqToCallback: true }, (req, username, password, done) => {
     User.findOne(
       {
         username,
@@ -15,6 +15,7 @@ passport.use(
         }
 
         if (!user || !(await user.validatePassword(password))) {
+          req.authError = "Error: Unauthorized! Invalid username or password";
           return done(null, false);
         }
 

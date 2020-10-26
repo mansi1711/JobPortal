@@ -2,11 +2,59 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/header.ejs') %>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+      border: 3px solid #f1f1f1;
+    }
+
+    input[type=text],
+    input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+    }
+
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+
+    .container {
+      padding: 16px;
+    }
+  </style>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  <%- include('../partials/header.ejs') %>
 </head>
 
-<body class="container">
+<body>
 
   <header>
     <%- include('../partials/navigation.ejs') %>
@@ -14,15 +62,26 @@
 
 
   <form action="/login/user" method="POST">
-    User Name: <input type="text" name="username" value=""><br><br>
-    Password: <input type="text" name="password" value=""><br><br>
-    <input type="submit" value="Submit">
+    <div class="imgcontainer">
+      <img src="/avatar/img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+    <div class="container">
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" value="<%- username%>">
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" value="<%- password%>">
+      <button type="submit">Login</button>
+    </div>
   </form>
+
+  <div class="logoo">
+    <% if(message){ %>
+    <%= message %>
+    <% }; %>
+  </div>
 
 </body>
 
-<footer class="page-footer">
-    <%- include('../partials/footer.ejs') %>
-</footer>
+<%- include('../partials/footer.ejs') %>
 
 </html>

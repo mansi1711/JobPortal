@@ -23,7 +23,7 @@ UserSchema.methods.validatePassword = async function (password) {
 
 UserSchema.methods.generateJwtToken = function () {
   var jwtSecret = process.env.JWT_SECRET_MANAGER;
-  if(this.role == "employee"){
+  if (this.role == "employee") {
     jwtSecret = process.env.JWT_SECRET_EMPLOYEE
   }
   const today = new Date();

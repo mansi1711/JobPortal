@@ -6,9 +6,7 @@
   </div>
   <% if(loggedin){ %>
   <div>
-    <form action="/logout">
-      <input type="submit" name="Logout" value="logout" />
-    </form>
+    <h5><%= userName %></h5><a href="/logout">Logout</a>
   </div>
   <% }; %>
 </div>
@@ -18,18 +16,18 @@
 <link rel='stylesheet' href='/stylesheets/style.css' />
 <style>
   .logo {
-  overflow: hidden;
-  text-align: left;
-  position: relative;
-  height: 60px;
-  background-color: white;
-  color: #1F6C8B;
-  font-family: Arial;
-  margin-bottom: 30px;
-}
+    overflow: hidden;
+    text-align: left;
+    position: relative;
+    height: 60px;
+    background-color: white;
+    color: #1F6C8B;
+    font-family: Arial;
+    margin-bottom: 30px;
+  }
+
   .wrap {
-  display: flex;
-  justify-content: space-between;
-}
- 
+    display: flex;
+    justify-content: space-between;
+  }
 </style>
